@@ -3,8 +3,8 @@
 # Contributor: Tom Gundersen <teg@jklm.no>
 
 pkgname=filesystem
-pkgver=2018.1
-pkgrel=3
+pkgver=2018.8
+pkgrel=1
 pkgdesc='Base Manjaro Linux files'
 arch=('x86_64')
 license=('GPL')
@@ -19,7 +19,7 @@ backup=('etc/crypttab' 'etc/fstab' 'etc/group' 'etc/gshadow' 'etc/host.conf'
 source=('crypttab' 'env-generator' 'fstab' 'group' 'gshadow' 'host.conf' 'hosts'
         'hostname' 'issue' 'ld.so.conf' 'locale.conf' 'locale.sh' 'modules.conf' 'motd'
         'nsswitch.conf' 'os-release' 'passwd' 'profile' 'resolv.conf' 'securetty' 'shadow'
-        'shells' 'sysusers' 'tmpfiles' 'vconsole.conf')
+        'shells' 'sysctl' 'sysusers' 'tmpfiles' 'vconsole.conf')
 sha256sums=('e03bede3d258d680548696623d5979c6edf03272e801a813c81ba5a5c64f4f82'
             'ed0cb4f1db4021f8c3b5ce78fdf91d2c0624708f58f36c9cf867f4d93c3bc6da'
             'e54626e74ed8fee4173b62a545ab1c3a3a069e4217a0ee8fc398d9933e9c1696'
@@ -42,6 +42,7 @@ sha256sums=('e03bede3d258d680548696623d5979c6edf03272e801a813c81ba5a5c64f4f82'
             'd88be2b45b43605ff31dd83d6a138069b6c2e92bc8989b7b9ab9eba8da5f8c7b'
             '8ce994663d7588143ad7ed4441b07f468f4f7d3590164dd73ddfa3ea307ece8e'
             'c390b31fffc4a2b5d78ae8c89f5317aadef1f71baac09cfb467b675db1406d61'
+            '89e43a0b7028f52d5c8e7fb961d962c4b4f4e9595880a6157274ddb2c7c0b6b4'
             'b5b28f395583d141d88c0b955cd05124f9b8cdf003feab01e55885b8e8c1303e'
             '618ac097441c1f2daffc9967e5c3cd18ea8866f776db62d04bf401c53907b1c9'
             'cd4a55177020a436254bb4baf84e068b98b3b0f6644173a7c853d58d236e00f1')
@@ -74,11 +75,11 @@ package() {
     install -m600 "$srcdir"/$f usr/share/factory/etc/
   done
 
-	# add modules-load.d/modules
-	install -D -m644 $srcdir/modules.conf etc/modules-load.d/modules.conf
+  # add modules-load.d/modules
+  install -D -m644 $srcdir/modules.conf etc/modules-load.d/modules.conf
 
-	# Create the manjaro-release file
-	echo "Manjaro Linux" > $pkgdir/etc/manjaro-release
+  # Create the manjaro-release file
+  echo "Manjaro Linux" > $pkgdir/etc/manjaro-release
 	ln -s manjaro-release $pkgdir/etc/arch-release
   install -m755 "$srcdir"/locale.sh etc/profile.d/locale.sh
   install -Dm644 "$srcdir"/os-release usr/lib/os-release
@@ -120,6 +121,9 @@ package() {
     install -d -m755 usr/local/$d
   done
   ln -s ../man usr/local/share/man
+
+  # setup systemd-sysctl
+  install -D -m644 "$srcdir"/sysctl usr/lib/sysctl.d/10-manjaro.conf
 
   # setup systemd-sysusers
   install -D -m644 "$srcdir"/sysusers usr/lib/sysusers.d/manjaro.conf
