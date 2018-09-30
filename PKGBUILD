@@ -3,7 +3,7 @@
 # Contributor: Tom Gundersen <teg@jklm.no>
 
 pkgname=filesystem
-pkgver=2018.8
+pkgver=2018.9
 pkgrel=1
 pkgdesc='Base Manjaro Linux files'
 arch=('x86_64')
@@ -35,7 +35,7 @@ sha256sums=('e03bede3d258d680548696623d5979c6edf03272e801a813c81ba5a5c64f4f82'
             'a8a1cd5c81b11498d43ba0e0b5de53de6f154a395d54171f44d2874b4f659053'
             'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
             '3e17088d6141e3ef676528ac8ef4abd9c4584f8b65547c1236b55310e725e1bf'
-            'efd40220834038831fd7837e1249428cbe24d361ccf9a38d510e137235faa9bc'
+            'd4e4d1c0137b7fa134732d1490cea461671510d6a58a0742c52ea6e98bd395d8'
             '5e06477834f51abf42ea4e8dc199632afc6afbfd8c44354685a271e9a48d2c0a'
             '5da078777cda24e4df697e2928451723f2303bfdbb2ce9551c822188c7945d25'
             '5557d8e601b17a80d1ea7de78a9869be69637cb6a02fbfe334e22fdf64e61d4c'
