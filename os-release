@@ -6,3 +6,4 @@ ANSI_COLOR="1;32"
 HOME_URL="https://www.manjaro.org/"
 SUPPORT_URL="https://www.manjaro.org/"
 BUG_REPORT_URL="https://bugs.manjaro.org/"
+LOGO=manjarolinux

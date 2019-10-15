@@ -3,8 +3,8 @@
 # Contributor: Tom Gundersen <teg@jklm.no>
 
 pkgname=filesystem
-pkgver=2018.9
-pkgrel=3
+pkgver=2019.10
+pkgrel=1
 pkgdesc='Base Manjaro Linux files'
 arch=('x86_64')
 license=('GPL')
@@ -15,7 +15,7 @@ backup=('etc/crypttab' 'etc/fstab' 'etc/group' 'etc/gshadow' 'etc/host.conf'
         'etc/hosts' 'etc/hostname' 'etc/issue' 'etc/ld.so.conf' 'etc/locale.conf'
         'etc/motd' 'etc/nsswitch.conf' 'etc/passwd' 'etc/profile' 'etc/resolv.conf'
         'etc/securetty' 'etc/shadow' 'etc/shells' 'etc/vconsole.conf'
-        'usr/lib/os-release' 'etc/modules-load.d/modules.conf')
+        'etc/modules-load.d/modules.conf')
 source=('crypttab' 'env-generator' 'fstab' 'group' 'gshadow' 'home-local-bin.sh' 'host.conf'
         'hosts' 'hostname' 'issue' 'ld.so.conf' 'locale.conf' 'locale.sh' 'modules.conf' 'motd'
         'nsswitch.conf' 'os-release' 'passwd' 'profile' 'resolv.conf' 'securetty' 'shadow'
@@ -36,7 +36,7 @@ sha256sums=('e03bede3d258d680548696623d5979c6edf03272e801a813c81ba5a5c64f4f82'
             'a8a1cd5c81b11498d43ba0e0b5de53de6f154a395d54171f44d2874b4f659053'
             'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
             '3e17088d6141e3ef676528ac8ef4abd9c4584f8b65547c1236b55310e725e1bf'
-            'd4e4d1c0137b7fa134732d1490cea461671510d6a58a0742c52ea6e98bd395d8'
+            'b7d4fe0624dd93936474ef7fb060ccb6c204784ae96df4bab4642443536512e6'
             '5e06477834f51abf42ea4e8dc199632afc6afbfd8c44354685a271e9a48d2c0a'
             '5da078777cda24e4df697e2928451723f2303bfdbb2ce9551c822188c7945d25'
             '5557d8e601b17a80d1ea7de78a9869be69637cb6a02fbfe334e22fdf64e61d4c'
