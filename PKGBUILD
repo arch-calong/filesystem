@@ -4,13 +4,13 @@
 
 pkgname=filesystem
 pkgver=2019.10
-pkgrel=1
+pkgrel=2
 pkgdesc='Base Manjaro Linux files'
 arch=('x86_64')
 license=('GPL')
 url='https://manjaro.org'
 groups=('base')
-depends=('iana-etc')
+depends=('iana-etc' 'manjaro-icons')
 backup=('etc/crypttab' 'etc/fstab' 'etc/group' 'etc/gshadow' 'etc/host.conf'
         'etc/hosts' 'etc/hostname' 'etc/issue' 'etc/ld.so.conf' 'etc/locale.conf'
         'etc/motd' 'etc/nsswitch.conf' 'etc/passwd' 'etc/profile' 'etc/resolv.conf'
