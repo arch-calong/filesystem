@@ -1,16 +1,16 @@
 # Maintainer: Philip Müller <philm@manjaro.org>
+# Maintainer: Bernhard Landauer <bernhard@manjaro.org>
 # Contributor: Sébastien Luttringer
 # Contributor: Tom Gundersen <teg@jklm.no>
 
 pkgname=filesystem
 pkgver=2019.10
-pkgrel=2
+pkgrel=4
 pkgdesc='Base Manjaro Linux files'
 arch=('x86_64')
 license=('GPL')
 url='https://manjaro.org'
-groups=('base')
-depends=('iana-etc' 'manjaro-icons')
+depends=('iana-etc')
 backup=('etc/crypttab' 'etc/fstab' 'etc/group' 'etc/gshadow' 'etc/host.conf'
         'etc/hosts' 'etc/hostname' 'etc/issue' 'etc/ld.so.conf' 'etc/locale.conf'
         'etc/motd' 'etc/nsswitch.conf' 'etc/passwd' 'etc/profile' 'etc/resolv.conf'
