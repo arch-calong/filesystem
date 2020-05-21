@@ -4,8 +4,8 @@
 # Contributor: Tom Gundersen <teg@jklm.no>
 
 pkgname=filesystem
-pkgver=2019.10
-pkgrel=4
+pkgver=2020.05
+pkgrel=1
 pkgdesc='Base Manjaro Linux files'
 arch=('x86_64')
 license=('GPL')
@@ -36,12 +36,12 @@ sha256sums=('e03bede3d258d680548696623d5979c6edf03272e801a813c81ba5a5c64f4f82'
             'a8a1cd5c81b11498d43ba0e0b5de53de6f154a395d54171f44d2874b4f659053'
             'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
             '3e17088d6141e3ef676528ac8ef4abd9c4584f8b65547c1236b55310e725e1bf'
-            'b7d4fe0624dd93936474ef7fb060ccb6c204784ae96df4bab4642443536512e6'
+            'b5baaf389d2288bc6ea4d048526a5bd5525fc2de360f8a88c7b34f963ac331a3'
             '5e06477834f51abf42ea4e8dc199632afc6afbfd8c44354685a271e9a48d2c0a'
-            '5da078777cda24e4df697e2928451723f2303bfdbb2ce9551c822188c7945d25'
+            '7bb7e910d7bc073e34543f1e42b709e85efb6f1f7c0e5c9ffe0e207f8ca36fb6'
             '5557d8e601b17a80d1ea7de78a9869be69637cb6a02fbfe334e22fdf64e61d4c'
             'd88be2b45b43605ff31dd83d6a138069b6c2e92bc8989b7b9ab9eba8da5f8c7b'
-            '8ce994663d7588143ad7ed4441b07f468f4f7d3590164dd73ddfa3ea307ece8e'
+            '6e13705ac4d6f69cdba118c6b70c722346fd3c45224133e6bbfe28aca719563c'
             'c390b31fffc4a2b5d78ae8c89f5317aadef1f71baac09cfb467b675db1406d61'
             '89e43a0b7028f52d5c8e7fb961d962c4b4f4e9595880a6157274ddb2c7c0b6b4'
             'b5b28f395583d141d88c0b955cd05124f9b8cdf003feab01e55885b8e8c1303e'
