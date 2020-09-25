@@ -82,8 +82,8 @@ package() {
   # Create the manjaro-release file
   echo "Manjaro Linux" > $pkgdir/etc/manjaro-release
 	ln -s manjaro-release $pkgdir/etc/arch-release
-  install "$srcdir"/home-local-bin.sh etc/profile.d/home-local-bin.sh
-  install "$srcdir"/locale.sh etc/profile.d/locale.sh
+  install -m644 "$srcdir"/home-local-bin.sh etc/profile.d/home-local-bin.sh
+  install -m644 "$srcdir"/locale.sh etc/profile.d/locale.sh
   install -Dm644 "$srcdir"/os-release usr/lib/os-release
 
   # setup /var
