@@ -4,7 +4,7 @@
 # Contributor: Tom Gundersen <teg@jklm.no>
 
 pkgname=filesystem
-pkgver=2020.05
+pkgver=2020.09
 pkgrel=1
 pkgdesc='Base Manjaro Linux files'
 arch=('x86_64')
@@ -36,7 +36,7 @@ sha256sums=('e03bede3d258d680548696623d5979c6edf03272e801a813c81ba5a5c64f4f82'
             'a8a1cd5c81b11498d43ba0e0b5de53de6f154a395d54171f44d2874b4f659053'
             'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
             '3e17088d6141e3ef676528ac8ef4abd9c4584f8b65547c1236b55310e725e1bf'
-            'b5baaf389d2288bc6ea4d048526a5bd5525fc2de360f8a88c7b34f963ac331a3'
+            '98d6429396e4238c87f23a180c88d77772f078cf110827faafd319da669658a7'
             '5e06477834f51abf42ea4e8dc199632afc6afbfd8c44354685a271e9a48d2c0a'
             '7bb7e910d7bc073e34543f1e42b709e85efb6f1f7c0e5c9ffe0e207f8ca36fb6'
             '5557d8e601b17a80d1ea7de78a9869be69637cb6a02fbfe334e22fdf64e61d4c'
