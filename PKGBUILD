@@ -4,7 +4,7 @@
 # Contributor: Tom Gundersen <teg@jklm.no>
 
 pkgname=filesystem
-pkgver=2021.01.19
+pkgver=2021.05.31
 pkgrel=1
 pkgdesc='Base Manjaro Linux files'
 arch=('x86_64')
