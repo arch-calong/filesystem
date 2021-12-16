@@ -5,7 +5,7 @@
 
 pkgname=filesystem
 pkgver=2021.12.07
-pkgrel=1
+pkgrel=2
 pkgdesc='Base Manjaro Linux files'
 arch=('x86_64')
 license=('GPL')
@@ -34,7 +34,7 @@ sha256sums=('e03bede3d258d680548696623d5979c6edf03272e801a813c81ba5a5c64f4f82'
             'bc538cf42f96e24b8ec94c32242b6891de245e0207fab6937bfce3e23942742b'
             '8ca2d8eef6fb5143c9ef7e9174ccfef59ac7ad2deee243574cd10c763156cc10'
             'a8a1cd5c81b11498d43ba0e0b5de53de6f154a395d54171f44d2874b4f659053'
-            'c8ee7a9faf798caab178ec51afae4146f1efd8a716b7acedf28345b6c75f9697'
+            'd170ca6620a94b0abb6efe6a99708e04db4e561e7830ccd1e70ad9667f1539fa'
             '98d6429396e4238c87f23a180c88d77772f078cf110827faafd319da669658a7'
             '5e06477834f51abf42ea4e8dc199632afc6afbfd8c44354685a271e9a48d2c0a'
             '5e4088ad8d0853d390fa303f6be8c3f69c33834200cba9e90f7849f1993ca8d0'
