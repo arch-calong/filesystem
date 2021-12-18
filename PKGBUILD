@@ -5,7 +5,7 @@
 
 pkgname=filesystem
 pkgver=2021.12.07
-pkgrel=2
+pkgrel=3
 pkgdesc='Base Manjaro Linux files'
 arch=('x86_64')
 license=('GPL')
