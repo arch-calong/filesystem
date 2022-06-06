@@ -5,19 +5,19 @@
 
 pkgname=filesystem
 pkgver=2021.12.07
-pkgrel=4
+pkgrel=5
 pkgdesc='Base Manjaro Linux files'
 arch=('x86_64')
 license=('GPL')
 url='https://manjaro.org'
 depends=('iana-etc')
 backup=('etc/crypttab' 'etc/fstab' 'etc/group' 'etc/gshadow' 'etc/host.conf'
-        'etc/hosts' 'etc/hostname' 'etc/issue' 'etc/ld.so.conf' 'etc/locale.conf'
+        'etc/hosts' 'etc/hostname' 'etc/issue' 'etc/ld.so.conf'
         'etc/nsswitch.conf' 'etc/passwd' 'etc/profile' 'etc/resolv.conf'
         'etc/securetty' 'etc/shadow' 'etc/shells' 'etc/vconsole.conf'
         'etc/modules-load.d/modules.conf')
 source=('crypttab' 'env-generator' 'fstab' 'group' 'gshadow' 'home-local-bin.sh' 'host.conf'
-        'hosts' 'hostname' 'issue' 'ld.so.conf' 'locale.conf' 'locale.sh' 'modules.conf'
+        'hosts' 'hostname' 'issue' 'ld.so.conf' 'locale.sh' 'modules.conf'
         'nsswitch.conf' 'os-release' 'passwd' 'profile' 'resolv.conf' 'securetty' 'shadow'
         'shells' 'sysctl' 'sysusers' 'tmpfiles' 'vconsole.conf')
 sha256sums=('e03bede3d258d680548696623d5979c6edf03272e801a813c81ba5a5c64f4f82'
@@ -31,7 +31,6 @@ sha256sums=('e03bede3d258d680548696623d5979c6edf03272e801a813c81ba5a5c64f4f82'
             '295a881e674d14ee0c0e77f25236a8fd99a9453e5c33f635f55d2e8c6959c7ea'
             'aa59e888f2f4b6f565ae7f4057b987bfde07890a2ccde438abee2b93a93d96c0'
             'dad04a370e488aa85fb0a813a5c83cf6fd981ce01883fc59685447b092de84b5'
-            'bc538cf42f96e24b8ec94c32242b6891de245e0207fab6937bfce3e23942742b'
             '8ca2d8eef6fb5143c9ef7e9174ccfef59ac7ad2deee243574cd10c763156cc10'
             'a8a1cd5c81b11498d43ba0e0b5de53de6f154a395d54171f44d2874b4f659053'
             '8f7623fbf8217d452306e618fe10155cf8a0b7234cdb882fe1a527c1838cf260'
