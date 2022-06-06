@@ -5,7 +5,7 @@
 
 pkgname=filesystem
 pkgver=2021.12.07
-pkgrel=3
+pkgrel=4
 pkgdesc='Base Manjaro Linux files'
 arch=('x86_64')
 license=('GPL')
@@ -64,7 +64,7 @@ package() {
 
   # setup /etc and /usr/share/factory/etc
   install -d etc/{ld.so.conf.d,skel,profile.d} usr/share/factory/etc
-  for f in fstab group hostname host.conf hosts issue ld.so.conf locale.conf \
+  for f in fstab group hostname host.conf hosts issue ld.so.conf \
   nsswitch.conf passwd resolv.conf securetty shells profile vconsole.conf; do
     install -m644 "$srcdir"/$f etc/
     install -m644 "$srcdir"/$f usr/share/factory/etc/
