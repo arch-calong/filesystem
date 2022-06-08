@@ -4,8 +4,8 @@
 # Contributor: Tom Gundersen <teg@jklm.no>
 
 pkgname=filesystem
-pkgver=2021.12.07
-pkgrel=5
+pkgver=2022.06.08
+pkgrel=1
 pkgdesc='Base Manjaro Linux files'
 arch=('x86_64')
 license=('GPL')
@@ -16,6 +16,7 @@ backup=('etc/crypttab' 'etc/fstab' 'etc/group' 'etc/gshadow' 'etc/host.conf'
         'etc/nsswitch.conf' 'etc/passwd' 'etc/profile' 'etc/resolv.conf'
         'etc/securetty' 'etc/shadow' 'etc/shells' 'etc/vconsole.conf'
         'etc/modules-load.d/modules.conf')
+install="$pkgname.install"
 source=('crypttab' 'env-generator' 'fstab' 'group' 'gshadow' 'home-local-bin.sh' 'host.conf'
         'hosts' 'hostname' 'issue' 'ld.so.conf' 'locale.sh' 'modules.conf'
         'nsswitch.conf' 'os-release' 'passwd' 'profile' 'resolv.conf' 'securetty' 'shadow'
@@ -31,7 +32,7 @@ sha256sums=('e03bede3d258d680548696623d5979c6edf03272e801a813c81ba5a5c64f4f82'
             '295a881e674d14ee0c0e77f25236a8fd99a9453e5c33f635f55d2e8c6959c7ea'
             'aa59e888f2f4b6f565ae7f4057b987bfde07890a2ccde438abee2b93a93d96c0'
             'dad04a370e488aa85fb0a813a5c83cf6fd981ce01883fc59685447b092de84b5'
-            '8ca2d8eef6fb5143c9ef7e9174ccfef59ac7ad2deee243574cd10c763156cc10'
+            '153d848ed51f2774e5a1578ea08e0c8586ecc63f7562697e035b84247edb2f82'
             'a8a1cd5c81b11498d43ba0e0b5de53de6f154a395d54171f44d2874b4f659053'
             '8f7623fbf8217d452306e618fe10155cf8a0b7234cdb882fe1a527c1838cf260'
             '98d6429396e4238c87f23a180c88d77772f078cf110827faafd319da669658a7'

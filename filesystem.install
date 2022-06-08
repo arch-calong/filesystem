@@ -1,0 +1,5 @@
+pre_upgrade() {
+  if [[ $(vercmp "$2" 2021.12.07-5) -lt 0 ]] && [ -f /etc/locale.conf.pacsave ] && [ ! -f /etc/locale.conf ]; then
+    mv /etc/locale.conf.pacsave /etc/locale.conf
+  fi
+}
