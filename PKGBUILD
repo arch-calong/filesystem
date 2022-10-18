@@ -4,48 +4,51 @@
 # Contributor: Tom Gundersen <teg@jklm.no>
 
 pkgname=filesystem
-pkgver=2022.10.08
-pkgrel=2
+pkgver=2022.10.17
+pkgrel=1
 pkgdesc='Base Manjaro Linux files'
 arch=('x86_64')
 license=('GPL')
 url='https://manjaro.org'
 depends=('iana-etc')
 backup=('etc/crypttab' 'etc/fstab' 'etc/group' 'etc/gshadow' 'etc/host.conf'
-        'etc/hosts' 'etc/hostname' 'etc/issue' 'etc/ld.so.conf'
-        'etc/nsswitch.conf' 'etc/passwd' 'etc/profile' 'etc/resolv.conf'
-        'etc/securetty' 'etc/shadow' 'etc/shells' 'etc/vconsole.conf'
-        'etc/modules-load.d/modules.conf')
+        'etc/hosts' 'etc/issue' 'etc/ld.so.conf' 'etc/nsswitch.conf'
+        'etc/passwd' 'etc/profile' 'etc/resolv.conf' 'etc/securetty'
+        'etc/shadow' 'etc/shells' 'etc/subuid' 'etc/subgid'
+        'etc/hostname' 'etc/modules-load.d/modules.conf' 'etc/vconsole.conf')
 install="$pkgname.install"
-source=('crypttab' 'env-generator' 'fstab' 'group' 'gshadow' 'home-local-bin.sh' 'host.conf'
-        'hosts' 'hostname' 'issue' 'ld.so.conf' 'locale.sh' 'modules.conf'
-        'nsswitch.conf' 'os-release' 'passwd' 'profile' 'resolv.conf' 'securetty' 'shadow'
-        'shells' 'sysctl' 'sysusers' 'tmpfiles' 'vconsole.conf')
+source=('crypttab' 'env-generator' 'fstab' 'group' 'gshadow' 'host.conf' 'hosts'
+        'issue' 'ld.so.conf' 'locale.sh' 'nsswitch.conf' 'os-release' 'profile'
+        'passwd' 'resolv.conf' 'securetty' 'shadow' 'shells' 'sysctl' 'sysusers'
+        'tmpfiles' 'subuid' 'subgid' 'vconsole.conf'
+        'home-local-bin.sh' 'hostname' 'modules.conf')
 sha256sums=('e03bede3d258d680548696623d5979c6edf03272e801a813c81ba5a5c64f4f82'
             'ed0cb4f1db4021f8c3b5ce78fdf91d2c0624708f58f36c9cf867f4d93c3bc6da'
             'e54626e74ed8fee4173b62a545ab1c3a3a069e4217a0ee8fc398d9933e9c1696'
             '244f0718ee2a9d6862ae59d6c18c1dd1568651eada91a704574fa527fbac2b3a'
             '90d879374f77bac47f132164c1e7fc4892e994ff1d1ac376efa0c1c26ea37273'
-            'b3a0fe98c0859192fb0fe03a9033ca5c5c8b48e9d23466a355b7c95bd5601051'
             '4d7b647169063dfedbff5e1e22cee77bd1a4183dbcfd5e802e68939da4bbf733'
             'd9cd8a77d9e0aa5e90d7f4ed74c8745c17b525e720e28e4c44364150003c35f9'
-            '295a881e674d14ee0c0e77f25236a8fd99a9453e5c33f635f55d2e8c6959c7ea'
             'aa59e888f2f4b6f565ae7f4057b987bfde07890a2ccde438abee2b93a93d96c0'
             'dad04a370e488aa85fb0a813a5c83cf6fd981ce01883fc59685447b092de84b5'
             '153d848ed51f2774e5a1578ea08e0c8586ecc63f7562697e035b84247edb2f82'
-            'a8a1cd5c81b11498d43ba0e0b5de53de6f154a395d54171f44d2874b4f659053'
             '8f7623fbf8217d452306e618fe10155cf8a0b7234cdb882fe1a527c1838cf260'
-            '98d6429396e4238c87f23a180c88d77772f078cf110827faafd319da669658a7'
-            '5e06477834f51abf42ea4e8dc199632afc6afbfd8c44354685a271e9a48d2c0a'
+            'e3d00400c05ba305eee712cd618781e835632095185d26ea10fc2f30648a1721'
             '5e4088ad8d0853d390fa303f6be8c3f69c33834200cba9e90f7849f1993ca8d0'
+            '5e06477834f51abf42ea4e8dc199632afc6afbfd8c44354685a271e9a48d2c0a'
             '5557d8e601b17a80d1ea7de78a9869be69637cb6a02fbfe334e22fdf64e61d4c'
             'd88be2b45b43605ff31dd83d6a138069b6c2e92bc8989b7b9ab9eba8da5f8c7b'
             '6e13705ac4d6f69cdba118c6b70c722346fd3c45224133e6bbfe28aca719563c'
             'c390b31fffc4a2b5d78ae8c89f5317aadef1f71baac09cfb467b675db1406d61'
             '89e43a0b7028f52d5c8e7fb961d962c4b4f4e9595880a6157274ddb2c7c0b6b4'
             'b5b28f395583d141d88c0b955cd05124f9b8cdf003feab01e55885b8e8c1303e'
-            'f17efd1c6480c5db1fdab4a0e3cfcd4baa44a3e1ae1210aebeb40f8d5c82f742'
-            'cd4a55177020a436254bb4baf84e068b98b3b0f6644173a7c853d58d236e00f1')
+            '5d8e61479f0093852365090e84d8d95b1e7fccfab068274ee25863bde6ff3e07'
+            '77f1d228d8b383994e3111a64662a046cd6e5649c4432b6264688dbd1ee63626'
+            'ad0c845fe0be8adeed1fbba9f6140115f67e09619faaec41920c12dd8cd4372e'
+            'cd4a55177020a436254bb4baf84e068b98b3b0f6644173a7c853d58d236e00f1'
+            'b3a0fe98c0859192fb0fe03a9033ca5c5c8b48e9d23466a355b7c95bd5601051'
+            '295a881e674d14ee0c0e77f25236a8fd99a9453e5c33f635f55d2e8c6959c7ea'
+            'a8a1cd5c81b11498d43ba0e0b5de53de6f154a395d54171f44d2874b4f659053')
 
 package() {
   cd "$pkgdir"
@@ -64,8 +67,8 @@ package() {
 
   # setup /etc and /usr/share/factory/etc
   install -d etc/{ld.so.conf.d,skel,profile.d} usr/share/factory/etc
-  for f in fstab group hostname host.conf hosts issue ld.so.conf \
-  nsswitch.conf passwd resolv.conf securetty shells profile vconsole.conf; do
+  for f in fstab group hostname host.conf hosts issue ld.so.conf nsswitch.conf \
+  passwd resolv.conf securetty shells profile subuid subgid vconsole.conf; do
     install -m644 "$srcdir"/$f etc/
     install -m644 "$srcdir"/$f usr/share/factory/etc/
   done
