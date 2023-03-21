@@ -4,7 +4,7 @@
 # Contributor: Tom Gundersen <teg@jklm.no>
 
 pkgname=filesystem
-pkgver=2023.01.30
+pkgver=2023.03.21
 pkgrel=1
 pkgdesc='Base Manjaro Linux files'
 arch=('x86_64')
@@ -32,7 +32,7 @@ sha256sums=('e03bede3d258d680548696623d5979c6edf03272e801a813c81ba5a5c64f4f82'
             'aa59e888f2f4b6f565ae7f4057b987bfde07890a2ccde438abee2b93a93d96c0'
             'dad04a370e488aa85fb0a813a5c83cf6fd981ce01883fc59685447b092de84b5'
             '153d848ed51f2774e5a1578ea08e0c8586ecc63f7562697e035b84247edb2f82'
-            '8f7623fbf8217d452306e618fe10155cf8a0b7234cdb882fe1a527c1838cf260'
+            '7c4596dafc51407fd87d571b4b0c6b54f13cbe47a33a45a3ec865ed37d42391a'
             'e3d00400c05ba305eee712cd618781e835632095185d26ea10fc2f30648a1721'
             '5e4088ad8d0853d390fa303f6be8c3f69c33834200cba9e90f7849f1993ca8d0'
             '5e06477834f51abf42ea4e8dc199632afc6afbfd8c44354685a271e9a48d2c0a'
