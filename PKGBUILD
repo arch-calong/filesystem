@@ -4,7 +4,7 @@
 # Contributor: Tom Gundersen <teg@jklm.no>
 
 pkgname=filesystem
-pkgver=2023.03.21
+pkgver=2023.08.01
 pkgrel=1
 pkgdesc='Base Manjaro Linux files'
 arch=('x86_64')
@@ -15,12 +15,12 @@ backup=('etc/crypttab' 'etc/fstab' 'etc/group' 'etc/gshadow' 'etc/host.conf'
         'etc/hosts' 'etc/issue' 'etc/ld.so.conf' 'etc/nsswitch.conf'
         'etc/passwd' 'etc/profile' 'etc/resolv.conf' 'etc/securetty'
         'etc/shadow' 'etc/shells' 'etc/subuid' 'etc/subgid'
-        'etc/hostname' 'etc/modules-load.d/modules.conf' 'etc/vconsole.conf')
+        'etc/hostname' 'etc/modules-load.d/modules.conf')
 install="$pkgname.install"
 source=('crypttab' 'env-generator' 'fstab' 'group' 'gshadow' 'host.conf' 'hosts'
         'issue' 'ld.so.conf' 'locale.sh' 'nsswitch.conf' 'os-release' 'profile'
         'passwd' 'resolv.conf' 'securetty' 'shadow' 'shells' 'sysctl' 'sysusers'
-        'tmpfiles' 'subuid' 'subgid' 'vconsole.conf'
+        'tmpfiles' 'subuid' 'subgid'
         'home-local-bin.sh' 'hostname' 'modules.conf')
 sha256sums=('e03bede3d258d680548696623d5979c6edf03272e801a813c81ba5a5c64f4f82'
             'ed0cb4f1db4021f8c3b5ce78fdf91d2c0624708f58f36c9cf867f4d93c3bc6da'
@@ -45,7 +45,6 @@ sha256sums=('e03bede3d258d680548696623d5979c6edf03272e801a813c81ba5a5c64f4f82'
             '5d8e61479f0093852365090e84d8d95b1e7fccfab068274ee25863bde6ff3e07'
             'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
             'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
-            'cd4a55177020a436254bb4baf84e068b98b3b0f6644173a7c853d58d236e00f1'
             'b3a0fe98c0859192fb0fe03a9033ca5c5c8b48e9d23466a355b7c95bd5601051'
             '295a881e674d14ee0c0e77f25236a8fd99a9453e5c33f635f55d2e8c6959c7ea'
             'a8a1cd5c81b11498d43ba0e0b5de53de6f154a395d54171f44d2874b4f659053')
@@ -68,7 +67,7 @@ package() {
   # setup /etc and /usr/share/factory/etc
   install -d etc/{ld.so.conf.d,skel,profile.d} usr/share/factory/etc
   for f in fstab group hostname host.conf hosts issue ld.so.conf nsswitch.conf \
-  passwd resolv.conf securetty shells profile subuid subgid vconsole.conf; do
+  passwd resolv.conf securetty shells profile subuid subgid; do
     install -m644 "$srcdir"/$f etc/
     install -m644 "$srcdir"/$f usr/share/factory/etc/
   done
