@@ -5,7 +5,7 @@ post_upgrade() {
     mv /etc/locale.conf.pacsave /etc/locale.conf
   fi
 
-  if [[ $(vercmp "$2" 2023.08.02-1) -lt 0 ]] && [ -f /etc/vconsole.conf.pacsave ] && [ ! -f /etc/vconsole.conf ]; then
+  if [[ $(vercmp "$2" 2023.08.05-1) -lt 0 ]] && [ -f /etc/vconsole.conf.pacsave ] && [ ! -f /etc/vconsole.conf ]; then
     echo "Note: vconsole.conf is not longer tracked by"
     echo "package management. Restoring /etc/vconsole.conf ..."
     mv /etc/vconsole.conf.pacsave /etc/vconsole.conf
