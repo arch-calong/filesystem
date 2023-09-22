@@ -4,11 +4,11 @@
 # Contributor: Tom Gundersen <teg@jklm.no>
 
 pkgname=filesystem
-pkgver=2023.09.03
+pkgver=2023.09.22
 pkgrel=1
 pkgdesc='Base Manjaro Linux files'
-arch=('x86_64')
-license=('GPL')
+arch=('any')
+license=('GPL-3.0-or-later')
 url='https://manjaro.org'
 depends=('iana-etc')
 backup=('etc/crypttab' 'etc/fstab' 'etc/group' 'etc/gshadow' 'etc/host.conf'
@@ -34,7 +34,7 @@ sha256sums=('e03bede3d258d680548696623d5979c6edf03272e801a813c81ba5a5c64f4f82'
             '153d848ed51f2774e5a1578ea08e0c8586ecc63f7562697e035b84247edb2f82'
             '7c4596dafc51407fd87d571b4b0c6b54f13cbe47a33a45a3ec865ed37d42391a'
             'e3d00400c05ba305eee712cd618781e835632095185d26ea10fc2f30648a1721'
-            '5e4088ad8d0853d390fa303f6be8c3f69c33834200cba9e90f7849f1993ca8d0'
+            '8f08231922fe185d3132f9aedded5cd688fb7c482a6f6f272402ded82fa4849a'
             '5e06477834f51abf42ea4e8dc199632afc6afbfd8c44354685a271e9a48d2c0a'
             '5557d8e601b17a80d1ea7de78a9869be69637cb6a02fbfe334e22fdf64e61d4c'
             'd88be2b45b43605ff31dd83d6a138069b6c2e92bc8989b7b9ab9eba8da5f8c7b'
