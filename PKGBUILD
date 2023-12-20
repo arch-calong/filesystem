@@ -4,7 +4,7 @@
 # Contributor: Tom Gundersen <teg@jklm.no>
 
 pkgname=filesystem
-pkgver=2023.09.22
+pkgver=2023.12.20
 pkgrel=1
 pkgdesc='Base Manjaro Linux files'
 arch=('any')
@@ -20,7 +20,7 @@ install="$pkgname.install"
 source=('crypttab' 'env-generator' 'fstab' 'group' 'gshadow' 'host.conf' 'hosts'
         'issue' 'ld.so.conf' 'locale.sh' 'nsswitch.conf' 'os-release' 'profile'
         'passwd' 'resolv.conf' 'securetty' 'shadow' 'shells' 'sysctl' 'sysusers'
-        'tmpfiles' 'subuid' 'subgid'
+        'tmpfiles' 'subuid' 'subgid' 'manjaro-logo.png' 'manjaro-logo-text-dark.png'
         'home-local-bin.sh' 'hostname' 'modules.conf')
 sha256sums=('e03bede3d258d680548696623d5979c6edf03272e801a813c81ba5a5c64f4f82'
             'ed0cb4f1db4021f8c3b5ce78fdf91d2c0624708f58f36c9cf867f4d93c3bc6da'
@@ -45,6 +45,8 @@ sha256sums=('e03bede3d258d680548696623d5979c6edf03272e801a813c81ba5a5c64f4f82'
             '5d8e61479f0093852365090e84d8d95b1e7fccfab068274ee25863bde6ff3e07'
             'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
             'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
+            '014e8a09f88a73b1e5985dcb16a44004e341f5bba90043fa3d7fd7e3a56120cf'
+            '31032e888cc8402907e2ef24f95959b9fa0f3547bb076b9fe4700aab79556739'
             'b3a0fe98c0859192fb0fe03a9033ca5c5c8b48e9d23466a355b7c95bd5601051'
             '295a881e674d14ee0c0e77f25236a8fd99a9453e5c33f635f55d2e8c6959c7ea'
             'a8a1cd5c81b11498d43ba0e0b5de53de6f154a395d54171f44d2874b4f659053')
@@ -82,7 +84,7 @@ package() {
 
   # Create the manjaro-release file
   echo "Manjaro Linux" > $pkgdir/etc/manjaro-release
-	ln -s manjaro-release $pkgdir/etc/arch-release
+  ln -s manjaro-release $pkgdir/etc/arch-release
   install -m644 "$srcdir"/home-local-bin.sh etc/profile.d/home-local-bin.sh
   install -m644 "$srcdir"/locale.sh etc/profile.d/locale.sh
   install -Dm644 "$srcdir"/os-release usr/lib/os-release
@@ -100,7 +102,7 @@ package() {
   ln -s ../run/lock var/lock
 
   # setup /usr hierarchy
-  for d in bin include lib share/misc src; do
+  for d in bin include lib share/{misc,pixmaps} src; do
     install -d -m755 usr/$d
   done
   for d in {1..8}; do
@@ -136,6 +138,9 @@ package() {
 
   # setup systemd.environment-generator
   install -D -m755 "$srcdir"/env-generator usr/lib/systemd/system-environment-generators/10-manjaro
+
+  # add logo
+  install -D -m644 "$srcdir"/manjaro-logo{.png,-text-dark.png} usr/share/pixmaps
 }
 
 # vim:set ts=2 sw=2 et:
