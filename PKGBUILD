@@ -108,6 +108,7 @@ package() {
   for d in {1..8}; do
     install -d -m755 usr/share/man/man$d
   done
+  install -d usr/lib/ld.so.conf.d
 
   # add lib symlinks
   ln -s usr/lib lib
