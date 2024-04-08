@@ -22,7 +22,7 @@ source=('crypttab' 'env-generator' 'fstab' 'group' 'gshadow' 'host.conf' 'hosts'
         'issue' 'ld.so.conf' 'locale.sh' 'nsswitch.conf' 'os-release' 'profile'
         'passwd' 'resolv.conf' 'securetty' 'shadow' 'shells' 'sysctl' 'sysusers'
         'tmpfiles' 'subuid' 'subgid' 'manjaro-logo.png' 'manjaro-logo-text-dark.png'
-        'home-local-bin.sh' 'hostname' 'modules.conf')
+        'home-local-bin.sh' 'hostname' 'modules.conf' 'manjaro-release')
 sha256sums=('e03bede3d258d680548696623d5979c6edf03272e801a813c81ba5a5c64f4f82'
             'ed0cb4f1db4021f8c3b5ce78fdf91d2c0624708f58f36c9cf867f4d93c3bc6da'
             'e54626e74ed8fee4173b62a545ab1c3a3a069e4217a0ee8fc398d9933e9c1696'
@@ -43,18 +43,20 @@ sha256sums=('e03bede3d258d680548696623d5979c6edf03272e801a813c81ba5a5c64f4f82'
             '8ba0b52fe44cde8e6889f7bf8b27cd4a347694f20b25e3454814cadd3f921ef6'
             '1a1f39695826ca8d5e33ac5801c21f17c6e1d0593b281a1e77be099d454d9715'
             '30b97e8f5965744138f7a394e04454db6d509fb89e0a9b615bcd9037df3d6f2a'
-            '5d8e61479f0093852365090e84d8d95b1e7fccfab068274ee25863bde6ff3e07'
+            '3d8b9400ab811d1fbce405ea3f7712f0d8db7cd9491454c930c3a1023d4ef857'
             'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
             'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
             '014e8a09f88a73b1e5985dcb16a44004e341f5bba90043fa3d7fd7e3a56120cf'
             '31032e888cc8402907e2ef24f95959b9fa0f3547bb076b9fe4700aab79556739'
             'b3a0fe98c0859192fb0fe03a9033ca5c5c8b48e9d23466a355b7c95bd5601051'
             '295a881e674d14ee0c0e77f25236a8fd99a9453e5c33f635f55d2e8c6959c7ea'
-            'a8a1cd5c81b11498d43ba0e0b5de53de6f154a395d54171f44d2874b4f659053')
+            'a8a1cd5c81b11498d43ba0e0b5de53de6f154a395d54171f44d2874b4f659053'
+            'fe1105d30f7bffbe9b4a09bfc807c61d6ca1efac35bc7a593ae2747cb6822f58')
 
 package() {
-  local group link mode user
+  local group link mode source_file user
   declare -A directories
+  declare -A files
   declare -A symlinks
 
   # associative array with directories and their assigned mode, user and group
@@ -132,6 +134,59 @@ package() {
     symlinks["usr/lib64"]="lib"
   }
 
+  # associative array of target files, their source file, file mode, user and group ownership
+  files=(
+    ["etc/manjaro-release"]="manjaro-release:644:0:0"
+    ["etc/modules-load.d/modules.conf"]="modules.conf:644:0:0"
+    ["etc/crypttab"]="crypttab:600:0:0"
+    ["etc/fstab"]="fstab:644:0:0"
+    ["etc/group"]="group:644:0:0"
+    ["etc/gshadow"]="gshadow:600:0:0"
+    ["etc/hostname"]="hostname:644:0:0"
+    ["etc/host.conf"]="host.conf:644:0:0"
+    ["etc/hosts"]="hosts:644:0:0"
+    ["etc/issue"]="issue:644:0:0"
+    ["etc/ld.so.conf"]="ld.so.conf:644:0:0"
+    ["etc/nsswitch.conf"]="nsswitch.conf:644:0:0"
+    ["etc/passwd"]="passwd:644:0:0"
+    ["etc/profile"]="profile:644:0:0"
+    ["etc/profile.d/locale.sh"]="locale.sh:644:0:0"
+    ["etc/resolv.conf"]="resolv.conf:644:0:0"
+    ["etc/securetty"]="securetty:644:0:0"
+    ["etc/shells"]="shells:644:0:0"
+    ["etc/shadow"]="shadow:600:0:0"
+    ["etc/subgid"]="subgid:644:0:0"
+    ["etc/subuid"]="subuid:644:0:0"
+    ["usr/lib/os-release"]="os-release:644:0:0"
+    ["usr/lib/sysctl.d/10-manjaro.conf"]="sysctl:644:0:0"
+    ["usr/lib/sysusers.d/manjaro.conf"]="sysusers:644:0:0"
+    ["usr/lib/tmpfiles.d/manjaro.conf"]="tmpfiles:644:0:0"
+    ["usr/lib/systemd/system-environment-generators/10-manjaro"]="env-generator:755:0:0"
+    ["usr/share/factory/etc/manjaro-release"]="manjaro-release:644:0:0"
+    ["usr/share/factory/etc/modules-load.d/modules.conf"]="modules.conf:644:0:0"
+    ["usr/share/factory/etc/crypttab"]="crypttab:600:0:0"
+    ["usr/share/factory/etc/fstab"]="fstab:644:0:0"
+    ["usr/share/factory/etc/group"]="group:644:0:0"
+    ["usr/share/factory/etc/gshadow"]="gshadow:600:0:0"
+    ["usr/share/factory/etc/hostname"]="hostname:644:0:0"
+    ["usr/share/factory/etc/host.conf"]="host.conf:644:0:0"
+    ["usr/share/factory/etc/hosts"]="hosts:644:0:0"
+    ["usr/share/factory/etc/issue"]="issue:644:0:0"
+    ["usr/share/factory/etc/ld.so.conf"]="ld.so.conf:644:0:0"
+    ["usr/share/factory/etc/nsswitch.conf"]="nsswitch.conf:644:0:0"
+    ["usr/share/factory/etc/passwd"]="passwd:644:0:0"
+    ["usr/share/factory/etc/profile"]="profile:644:0:0"
+    ["usr/share/factory/etc/profile.d/locale.sh"]="locale.sh:644:0:0"
+    ["usr/share/factory/etc/resolv.conf"]="resolv.conf:644:0:0"
+    ["usr/share/factory/etc/securetty"]="securetty:644:0:0"
+    ["usr/share/factory/etc/shadow"]="shadow:600:0:0"
+    ["usr/share/factory/etc/shells"]="shells:644:0:0"
+    ["usr/share/factory/etc/subgid"]="subgid:644:0:0"
+    ["usr/share/factory/etc/subuid"]="subuid:644:0:0"
+    ["usr/share/pixmaps/manjaro-logo.png"]="manjaro-logo.png:644:0:0"
+    ["usr/share/pixmaps/manjaro-logo-text-dark.png"]="manjaro-logo-text-dark.png:644:0:0"
+  )
+
   cd "$pkgdir"
 
   for dir in "${!directories[@]}"; do
@@ -146,36 +201,18 @@ package() {
     ln -sv "${symlinks[$link]}" "$link"
   done
 
-  for f in fstab group hostname host.conf hosts issue ld.so.conf nsswitch.conf \
-  passwd resolv.conf securetty shells profile subuid subgid; do
-    install -m644 "$srcdir"/$f etc/
-    install -m644 "$srcdir"/$f usr/share/factory/etc/
+  for target_file in "${!files[@]}"; do
+    source_file="$(cut -f 1 -d ':' <<< "${files[$target_file]}")"
+    mode="$(cut -f 2 -d ':' <<< "${files[$target_file]}")"
+    user="$(cut -f 3 -d ':' <<< "${files[$target_file]}")"
+    group="$(cut -f 4 -d ':' <<< "${files[$target_file]}")"
+
+    install -vDm "$mode" -o "$user" -g "$group" "$srcdir/$source_file" "$target_file"
   done
 
-  for f in gshadow shadow crypttab; do
-    install -m600 "$srcdir"/$f etc/
-    install -m600 "$srcdir"/$f usr/share/factory/etc/
-  done
-  echo "Manjaro Linux" > $pkgdir/etc/manjaro-release
-  ln -s manjaro-release $pkgdir/etc/arch-release
-  install -m644 "$srcdir"/home-local-bin.sh etc/profile.d/home-local-bin.sh
-  install -m644 "$srcdir"/locale.sh etc/profile.d/locale.sh
-  install -Dm644 "$srcdir"/os-release usr/lib/os-release
-
-  # setup systemd-sysctl
-  install -D -m644 "$srcdir"/sysctl usr/lib/sysctl.d/10-manjaro.conf
-
-  # setup systemd-sysusers
-  install -D -m644 "$srcdir"/sysusers usr/lib/sysusers.d/manjaro.conf
-
-  # setup systemd-tmpfiles
-  install -D -m644 "$srcdir"/tmpfiles usr/lib/tmpfiles.d/manjaro.conf
-
-  # setup systemd.environment-generator
-  install -D -m755 "$srcdir"/env-generator usr/lib/systemd/system-environment-generators/10-manjaro
-
-  # add logo
-  install -D -m644 "$srcdir"/manjaro-logo{.png,-text-dark.png} usr/share/pixmaps
+  # Symlink manjaro-release > arch-release
+  ln -s /usr/share/factory/etc/manjaro-release "$pkgdir"/usr/share/factory/etc/arch-release
+  ln -s /etc/manjaro-release "$pkgdir"/etc/arch-release
 }
 
 # vim:set ts=2 sw=2 et:

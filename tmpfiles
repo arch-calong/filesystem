@@ -8,9 +8,11 @@ C /etc/host.conf
 C /etc/hosts
 C /etc/issue
 C /etc/ld.so.conf
+C /etc/manjaro.conf
 C /etc/nsswitch.conf
 C /etc/passwd
 C /etc/profile
+C /etc/profile.d/locale.sh
 C /etc/securetty
 C /etc/shadow
 C /etc/shells
