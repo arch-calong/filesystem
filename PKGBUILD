@@ -138,6 +138,7 @@ package() {
   files=(
     ["etc/manjaro-release"]="manjaro-release:644:0:0"
     ["etc/modules-load.d/modules.conf"]="modules.conf:644:0:0"
+    ["etc/profile.d/home-local-bin.sh"]="home-local-bin.sh:644:0:0"
     ["etc/crypttab"]="crypttab:600:0:0"
     ["etc/fstab"]="fstab:644:0:0"
     ["etc/group"]="group:644:0:0"
@@ -164,6 +165,7 @@ package() {
     ["usr/lib/systemd/system-environment-generators/10-manjaro"]="env-generator:755:0:0"
     ["usr/share/factory/etc/manjaro-release"]="manjaro-release:644:0:0"
     ["usr/share/factory/etc/modules-load.d/modules.conf"]="modules.conf:644:0:0"
+    ["usr/share/factory/etc/profile.d/home-local-bin.sh"]="home-local-bin.sh:644:0:0"
     ["usr/share/factory/etc/crypttab"]="crypttab:600:0:0"
     ["usr/share/factory/etc/fstab"]="fstab:644:0:0"
     ["usr/share/factory/etc/group"]="group:644:0:0"
