@@ -1,5 +1,6 @@
 # Maintainer: Philip Müller <philm@manjaro.org>
 # Maintainer: Bernhard Landauer <bernhard@manjaro.org>
+# Contributor: David Runge <dvzrv@archlinux.org>
 # Contributor: Sébastien Luttringer
 # Contributor: Tom Gundersen <teg@jklm.no>
 
@@ -52,81 +53,114 @@ sha256sums=('e03bede3d258d680548696623d5979c6edf03272e801a813c81ba5a5c64f4f82'
             'a8a1cd5c81b11498d43ba0e0b5de53de6f154a395d54171f44d2874b4f659053')
 
 package() {
+  local group link mode user
+  declare -A directories
+  declare -A symlinks
+
+  # associative array with directories and their assigned mode, user and group
+  # all paths are relative to the root directory /
+  directories=(
+    ["boot"]="755:0:0"
+    ["dev"]="755:0:0"
+    ["etc"]="755:0:0"
+    ["etc/ld.so.conf.d"]="755:0:0"
+    ["etc/profile.d"]="755:0:0"
+    ["etc/skel"]="755:0:0"
+    ["home"]="755:0:0"
+    ["mnt"]="755:0:0"
+    ["opt"]="755:0:0"
+    ["proc"]="555:0:0"
+    ["root"]="0750:0:0"
+    ["run"]="755:0:0"
+    ["srv/http"]="755:0:0"
+    ["srv/ftp"]="555:0:11"  # vsftpd won't run with write perms on /srv/ftp
+    ["sys"]="555:0:0"
+    ["tmp"]="1777:0:0"
+    ["usr"]="755:0:0"
+    ["usr/bin"]="755:0:0"
+    ["usr/include"]="755:0:0"
+    ["usr/lib"]="755:0:0"
+    ["usr/lib/ld.so.conf.d"]="755:0:0"
+    ["usr/local/bin"]="755:0:0"
+    ["usr/local/etc"]="755:0:0"
+    ["usr/local/games"]="755:0:0"
+    ["usr/local/include"]="755:0:0"
+    ["usr/local/lib"]="755:0:0"
+    ["usr/local/man"]="755:0:0"
+    ["usr/local/sbin"]="755:0:0"
+    ["usr/local/share"]="755:0:0"
+    ["usr/local/src"]="755:0:0"
+    ["usr/share/factory/etc"]="755:0:0"
+    ["usr/share/man/man1"]="755:0:0"
+    ["usr/share/man/man2"]="755:0:0"
+    ["usr/share/man/man3"]="755:0:0"
+    ["usr/share/man/man4"]="755:0:0"
+    ["usr/share/man/man5"]="755:0:0"
+    ["usr/share/man/man6"]="755:0:0"
+    ["usr/share/man/man7"]="755:0:0"
+    ["usr/share/man/man8"]="755:0:0"
+    ["usr/share/misc"]="755:0:0"
+    ["usr/share/pixmaps"]="755:0:0"
+    ["usr/src"]="755:0:0"
+    ["var"]="755:0:0"
+    ["var/cache"]="755:0:0"
+    ["var/empty"]="755:0:0"
+    ["var/games"]="775:0:50"  # allow setgid games (gid 50) to write scores
+    ["var/lib/misc"]="755:0:0"
+    ["var/local"]="755:0:0"
+    ["var/log/old"]="755:0:0"
+    ["var/opt"]="755:0:0"
+    ["var/spool/mail"]="1777:0:0"
+    ["var/tmp"]="1777:0:0"
+  )
+
+  # associative array with symlink names and their respective targets
+  # all paths are relative to the root directory /
+  symlinks=(
+    ["bin"]="usr/bin"
+    ["etc/mtab"]="../proc/self/mounts"
+    ["lib"]="usr/lib"
+    ["sbin"]="usr/bin"
+    ["usr/local/share/man"]="../man"
+    ["usr/sbin"]="bin"
+    ["var/lock"]="../run/lock"
+    ["var/mail"]="spool/mail"
+    ["var/run"]="../run"
+  )
+  [[ $CARCH = 'x86_64' ]] && {
+    symlinks["lib64"]="usr/lib"
+    symlinks["usr/lib64"]="lib"
+  }
+
   cd "$pkgdir"
 
-  # setup root filesystem
-  for d in boot dev etc home mnt usr var opt srv/http run; do
-    install -d -m755 $d
-  done
-  install -d -m555 proc
-  install -d -m555 sys
-  install -d -m0750 root
-  install -d -m1777 tmp
-  # vsftpd won't run with write perms on /srv/ftp
-  # ftp (uid 14/gid 11)
-  install -d -m555 -g 11 srv/ftp
+  for dir in "${!directories[@]}"; do
+    mode="$(cut -f 1 -d ':' <<< "${directories[$dir]}")"
+    user="$(cut -f 2 -d ':' <<< "${directories[$dir]}")"
+    group="$(cut -f 3 -d ':' <<< "${directories[$dir]}")"
 
-  # setup /etc and /usr/share/factory/etc
-  install -d etc/{ld.so.conf.d,skel,profile.d} usr/share/factory/etc
+    install -vdm "$mode" -o "$user" -g "$group" "$dir"
+  done
+
+  for link in "${!symlinks[@]}"; do
+    ln -sv "${symlinks[$link]}" "$link"
+  done
+
   for f in fstab group hostname host.conf hosts issue ld.so.conf nsswitch.conf \
   passwd resolv.conf securetty shells profile subuid subgid; do
     install -m644 "$srcdir"/$f etc/
     install -m644 "$srcdir"/$f usr/share/factory/etc/
   done
-  ln -s ../proc/self/mounts etc/mtab
+
   for f in gshadow shadow crypttab; do
     install -m600 "$srcdir"/$f etc/
     install -m600 "$srcdir"/$f usr/share/factory/etc/
   done
-
-  # add modules-load.d/modules
-  install -D -m644 $srcdir/modules.conf etc/modules-load.d/modules.conf
-
-  # Create the manjaro-release file
   echo "Manjaro Linux" > $pkgdir/etc/manjaro-release
   ln -s manjaro-release $pkgdir/etc/arch-release
   install -m644 "$srcdir"/home-local-bin.sh etc/profile.d/home-local-bin.sh
   install -m644 "$srcdir"/locale.sh etc/profile.d/locale.sh
   install -Dm644 "$srcdir"/os-release usr/lib/os-release
-
-  # setup /var
-  for d in cache local opt log/old lib/misc empty; do
-    install -d -m755 var/$d
-  done
-  install -d -m1777 var/{tmp,spool/mail}
-
-  # allow setgid games (gid 50) to write scores
-  install -d -m775 -g 50 var/games
-  ln -s spool/mail var/mail
-  ln -s ../run var/run
-  ln -s ../run/lock var/lock
-
-  # setup /usr hierarchy
-  for d in bin include lib share/{misc,pixmaps} src; do
-    install -d -m755 usr/$d
-  done
-  for d in {1..8}; do
-    install -d -m755 usr/share/man/man$d
-  done
-  install -d usr/lib/ld.so.conf.d
-
-  # add lib symlinks
-  ln -s usr/lib lib
-  [[ $CARCH = 'x86_64' ]] && {
-    ln -s usr/lib lib64
-    ln -s lib usr/lib64
-  }
-
-  # add bin symlinks
-  ln -s usr/bin bin
-  ln -s usr/bin sbin
-  ln -s bin usr/sbin
-
-  # setup /usr/local hierarchy
-  for d in bin etc games include lib man sbin share src; do
-    install -d -m755 usr/local/$d
-  done
-  ln -s ../man usr/local/share/man
 
   # setup systemd-sysctl
   install -D -m644 "$srcdir"/sysctl usr/lib/sysctl.d/10-manjaro.conf
@@ -145,3 +179,4 @@ package() {
 }
 
 # vim:set ts=2 sw=2 et:
+
