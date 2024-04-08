@@ -5,7 +5,7 @@
 # Contributor: Tom Gundersen <teg@jklm.no>
 
 pkgname=filesystem
-pkgver=2024.04.06
+pkgver=2024.04.07
 pkgrel=1
 pkgdesc='Base Manjaro Linux files'
 arch=('any')
