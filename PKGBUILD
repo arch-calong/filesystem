@@ -60,7 +60,6 @@ source=(
   'manjaro-release'
   'manjaro-logo.png'
   'manjaro-logo-text-dark.png'
-  'home-local-bin.sh'
   'hostname'
   'modules.conf'
 )
@@ -90,7 +89,6 @@ sha256sums=('e03bede3d258d680548696623d5979c6edf03272e801a813c81ba5a5c64f4f82'
             'fe1105d30f7bffbe9b4a09bfc807c61d6ca1efac35bc7a593ae2747cb6822f58'
             '014e8a09f88a73b1e5985dcb16a44004e341f5bba90043fa3d7fd7e3a56120cf'
             '31032e888cc8402907e2ef24f95959b9fa0f3547bb076b9fe4700aab79556739'
-            'b3a0fe98c0859192fb0fe03a9033ca5c5c8b48e9d23466a355b7c95bd5601051'
             '295a881e674d14ee0c0e77f25236a8fd99a9453e5c33f635f55d2e8c6959c7ea'
             'a8a1cd5c81b11498d43ba0e0b5de53de6f154a395d54171f44d2874b4f659053')
 
@@ -179,7 +177,6 @@ package() {
   files=(
     ["etc/manjaro-release"]="manjaro-release:644:0:0"
     ["etc/modules-load.d/modules.conf"]="modules.conf:644:0:0"
-    ["etc/profile.d/home-local-bin.sh"]="home-local-bin.sh:644:0:0"
     ["etc/crypttab"]="crypttab:600:0:0"
     ["etc/fstab"]="fstab:644:0:0"
     ["etc/group"]="group:644:0:0"
@@ -206,7 +203,6 @@ package() {
     ["usr/lib/systemd/system-environment-generators/10-manjaro"]="env-generator:755:0:0"
     ["usr/share/factory/etc/manjaro-release"]="manjaro-release:644:0:0"
     ["usr/share/factory/etc/modules-load.d/modules.conf"]="modules.conf:644:0:0"
-    ["usr/share/factory/etc/profile.d/home-local-bin.sh"]="home-local-bin.sh:644:0:0"
     ["usr/share/factory/etc/crypttab"]="crypttab:600:0:0"
     ["usr/share/factory/etc/fstab"]="fstab:644:0:0"
     ["usr/share/factory/etc/group"]="group:644:0:0"
